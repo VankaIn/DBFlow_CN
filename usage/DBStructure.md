@@ -159,10 +159,10 @@ public class PrivateModelTest extends BaseModel {
 
 ### 默认值
 当字段的值丢失或遗漏，希望提供在数据库中默认值。SQLite使用`DEFAULT`来实现。
-When a value of a field is missing or left out, you wish to provide a default "fallback" in the database. SQLite provides this as the `DEFAULT` command in a creation statement.
+
 
 然而，在DBFlow也不是那么容易，因为我们依靠预编译实现这个`INSERT`声明。因此，作为一种妥协，这些值插入这样：
-However in DBFlow it is not so easy to respect this since we rely on precompiled `INSERT` statements with all primary keys in it. So as a compromise, these values are inserted as such:
+
 
 ```java
 @Table(database = TestDatabase.class)
