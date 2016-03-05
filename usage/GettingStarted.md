@@ -208,4 +208,6 @@ public class Queen extends BaseModel {
 }
 ```
 
+``注意``：如果你发现`Ant_Table`报错的时候，跑一下，让库自动生成模板就不会再报错了
+
 如果你想给自己懒加载，指定`OneToMany.Method.DELETE`和`SAVE`，代替`ALL`。如果每当女王的数据变化时候，您不希望保存，那么只指定 `DELETE` 和 `LOAD`。
