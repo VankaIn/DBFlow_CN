@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/btn_insert_colony"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="insert_colony"/>
+
+    <Button
+        android:id="@+id/btn_read_add_delete_colony"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="read_add_colony"/>
+
+    <Button
+        android:id="@+id/btn_insert_queen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="insert_queen and colony"/>
+
+    <Button
+        android:id="@+id/btn_read_queen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="read_add_queen_add_colony"/>
+
+
+    <Button
+        android:id="@+id/btn_insert_ants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="insert_1000_ants"/>
+
+    <Button
+        android:id="@+id/btn_read_ants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="read_1000_ants_by_queen"/>
+
+</LinearLayout>
