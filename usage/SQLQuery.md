@@ -72,30 +72,28 @@ List<Ant> devices = SQLite.select().from(Ant.class)
 
 ## SELECT语句和检索方法
 一个`SELECT`语句从数据库中检索数据。我们通过检索数据
-A `SELECT` statement retrieves data from the database. We retrieve data via
 
-1. Normal `Select` on the main thread
-2. Running a `Transaction` using the `TransactionManager` (recommended for large
-3. queries).
+1. 普通的在主线程中 `Select` 
+2. 用`TransactionManager` 运行一个 `Transaction`  (建议用于大型查询).
 
 ```java
 
-// Query a List
+// 查询一个List
 SQLite.select().from(SomeTable.class).queryList();
 SQLite.select().from(SomeTable.class).where(conditions).queryList();
 
-// Query Single Model
+//查询单个 Model
 SQLite.select().from(SomeTable.class).querySingle();
 SQLite.select().from(SomeTable.class).where(conditions).querySingle();
 
-// Query a Table List and Cursor List
+// 从一个表中查询一个list或游标（cursor）
 SQLite.select().from(SomeTable.class).where(conditions).queryTableList();
 SQLite.select().from(SomeTable.class).where(conditions).queryCursorList();
 
-// Query into a ModelContainer!
+// 在ModelContainer查询!
 SQLite.select().from(SomeTable.class).where(conditions).queryModelContainer(new MapModelContainer<>(SomeTable.class));
 
-// SELECT methods
+// 查询 methods
 SQLite.select().distinct().from(table).queryList();
 SQLite.select().from(table).queryList();
 SQLite.select(Method.avg(SomeTable_Table.salary))
@@ -165,24 +163,25 @@ SQLite.select()
   .queryList();
 ```
 
-## UPDATE statements
-There are two ways of updating data in the database:
+## UPDATE语句
+这里有2中更耐心数据库的方法:
 
-1. Calling `SQLite.update()`or Using the `Update` class
-2. Running a `Transaction` using the `TransactionManager` (recommended for thread-safety, however seeing changes are async).
+1. 调用 `SQLite.update()`或者使用 `Update` 类
+2. 运行 `事务` 使用 `事务管理器` (推荐线程安全的，但是看到的变化是异步)。
 
-In this section we will describe bulk updating data from the database.
+在本节中，我们将从数据库描述批量更新数据
 
+在我们对前面蚂蚁的例子中，我们要改变我们目前所有的男性“worker”蚂蚁为“other”蚂蚁，因为他们偷懒不工作了。
 From our earlier example on ants, we want to change all of our current male "worker" ants into "other" ants because they became lazy and do not work anymore.
 
-Using native SQL:
+使用本地SQL:
 
 ```sql
 
 UPDATE Ant SET type = 'other' WHERE male = 1 AND type = 'worker';
 ```
 
-Using DBFlow:
+使用DBFlow:
 
 ```java
 
@@ -197,7 +196,7 @@ update.queryClose();
 TransactionManager.getInstance().addTransaction(new QueryTransaction(DBTransactionInfo.create(BaseTransaction.PRIORITY_UI), update);
 ```
 
-## DELETE statements
+## DELETE语句
 
 ```java
 
@@ -214,14 +213,15 @@ SQLite.delete(MyTable.class)
   .query();
 ```
 
-## JOIN statements
-For reference, ([JOIN examples](http://www.tutorialspoint.com/sqlite/sqlite_using_joins.htm)).
+## JOIN声明
+作为参考, ([JOIN examples](http://www.tutorialspoint.com/sqlite/sqlite_using_joins.htm)).
 
-`JOIN` statements are great for combining many-to-many relationships.
+`JOIN` 语句能很好地结合很多一对多的关系。
+如果查询返回非表字段，不能映射到现有的对象，
 If your query returns non-table fields and cannot map to an existing object,
-see about [query models](usage/QueryModels.md)
+请参阅有关 [查询模式](usage/QueryModels.md)
 
-For example we have a table named `Customer` and another named `Reservations`.
+例如，我们有一个表名为`客户`，另一个名为`预订`。
 
 ```SQL
 SELECT FROM `Customer` AS `C` INNER JOIN `Reservations` AS `R` ON `C`.`customerId`=`R`.`customerId`
@@ -238,14 +238,14 @@ List<CustomTable> customers = new Select()
     .queryCustomList(CustomTable.class);
 ```
 
-The `IProperty.withTable()` method will prepend a `NameAlias` or the `Table` alias  to the `IProperty` in the query, convenient for JOIN queries:
+该 `IProperty.withTable()` 方法会在前面加上 `NameAlias` 或 `Table` 别名到 `IProperty`查询, 方便连接查询:
 
 ```sqlite
 SELECT EMP_ID, NAME, DEPT FROM COMPANY LEFT OUTER JOIN DEPARTMENT
       ON COMPANY.ID = DEPARTMENT.EMP_ID
 ```
 
-in DBFlow:
+在 DBFlow:
 
 ```java
 SQLite.select(Company_Table.EMP_ID, Company_Table.DEPT)
