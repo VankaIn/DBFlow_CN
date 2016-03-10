@@ -2,10 +2,15 @@
 `TransactionManager`是管理一批DB操作的主要的类。它是用于检索，更新，保存和删除items。它是由原生SQL封装的，而且**事务**操作很简单。此类还提供了一种在同一线程上异步执行数据库操作，使数据业务做不阻止用户界面线程。
 
 该`事务处理`利用了`DBTransactionQueue`。这个队列是基于Volley的`VolleyRequestQueue`通过使用`PriorityBlockingQueue`。此队列将使用下列顺序按优先执行我们的数据库事务（最高到最低）：
+
 1. **UI**：保留将显示在用户界面的数据的操作。
+2. 
 2  **HIGH**：保留，这将影响用户任务互动的操作。
+
 3. 一定时间内（不一定是马上）在UI在某一时刻的数据显示。
-4  **NORMAL**：`Transaction`的默认优先级，增加事务的时候，应用程序并不需要访问。
+
+4.  **NORMAL**：`Transaction`的默认优先级，增加事务的时候，应用程序并不需要访问。
+
 5. **LOW**：低优先级，对于非基本任务保留。
 
 `DBTransactionInfo`：持有在`DBTransactionQueue`上如何处理`BaseTransaction`的信息。它包含一个名称和优先级。这个名字纯粹是为了在运行时和执行时识别它的时候调试。优先级优先于上一段提及的优先级。
