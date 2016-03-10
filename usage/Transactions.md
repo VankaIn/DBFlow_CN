@@ -49,11 +49,11 @@ TransactionManager.getInstance().addTransaction(new SaveModelTransaction<>(Proce
 ```
 
 ## 批量处理`Model`
-`ProcessModelInfo`：描述了如何用一个事务来保存信息，例如`DBTransactionInfo`，table，一组models，和一个TransactionListener为事务。**注意***：该类的建立是为了大幅度简化方法数的TransactionManager上。
+`ProcessModelInfo`：描述了如何用一个事务来保存信息，例如`DBTransactionInfo`，table，一组models，和一个TransactionListener为事务。**注意**：该类的建立是为了大幅度简化方法数的TransactionManager上。
 
 对于跨上百个`Model`的大行动中，首选的方法是在`DBTransactionQueue`运行它。这将在同一线程上进行数据库操作，以减轻同步锁定和UI线程阻塞。
 
-对于大规模的`save()`操作，首选的方法是通过 `DBBatchSaveQueue`。这将运行一个批处理`DBTransaction` 一旦队列满（默认为50 models，并且可以修改）上的所有模型在同一时间。如果要保存少量的items，或者需要他们准确低保存，最好的选择是使用常规的保存事务。
+对于大规模的`save()`操作，首选的方法是通过 `DBBatchSaveQueue`。这将运行一个批处理`DBTransaction` 一旦队列满（默认为50 models，并且可以修改）在同一时间上的所有模型中。如果要保存少量的items，或者需要他们准确地保存，最好的选择是使用常规的保存事务。
 
 
 ### 例
@@ -94,7 +94,6 @@ TransactionManager.getInstance().addTransaction(new SaveModelTransaction<>(Proce
 
 ## 自定义事务处理
 这个库可以很容易添加自定义的事务。将它们添加到事务管理方式：
-This library makes it very easy to perform custom transactions. Add them to the `TransactionManager` by:
 
 ```java
 
