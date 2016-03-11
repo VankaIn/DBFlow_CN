@@ -28,7 +28,6 @@ public static ModelCache<CacheableModel3, ?> modelCache = new SimpleMapCache<>()
 该 `@ModelCacheField` 必须是公共静态。
 
 作为3.0，现在DBFlow从缓存加载时巧妙地重新加载`@ForeignKey` 的关系。
-As of 3.0, DBFlow now will smartly reload `@ForeignKey` relationships when loading from the cache.
 
 ### 缓存到底是如何工作
   1.每个`@Table`/`Model`类都有其自己的缓存，它们表与表和父类与之类之间不共享。
@@ -74,10 +73,10 @@ public class MultipleCacheableModel extends BaseModel {
 }
 ```
 
-The return type can be anything, as long as the `ModelCache` you define for the class supports the return type as a key.
+返回类型可以是任何东西，要`ModelCache`定义的类支持返回类型。
 
 ### FlowCursorList + FlowQueryList
-`FlowCursorList` and `FlowQueryList` utilize a separate `ModelCache` from the caches associated with `@Table`/`Model` classes. To override the default caching mechanism:
+在`@Table`/`Model`相关缓存中，`FlowCursorList` 和 `FlowQueryList` 利用单独 的`ModelCache`，该覆盖默认的缓存机制：
 
 ```java
 
@@ -87,9 +86,10 @@ protected ModelCache<? extends BaseCacheableModel, ?> getBackingCache() {
 }
 ```
 
-### Custom Caches
-You can create your own cache and use it wherever you want.
+### 自定义缓存
+只要你想的话，你可以创建自己的缓存并使用它。
 
+一个从支持库复制的`LruCache`缓存使用例子：
 An example cache is using a copied `LruCache` from the support library:
 
 ```java
