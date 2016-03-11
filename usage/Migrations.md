@@ -3,7 +3,7 @@
 
 在首次创建数据库，您可以使用版本0指定一个迁移运行时！
 
-**注意**：任何提供的子类，如`AlterTableMigration`，`UpdateTableMigration`和`IndexMigration`应该只覆盖`onPreMigrate（）`和**调用super.onPreMigrate（）**所以它的正确实例化。
+**注意**：任何提供的子类，如`AlterTableMigration`，`UpdateTableMigration`和`IndexMigration`应该只覆盖`onPreMigrate（）`和**调用super.onPreMigrate（）**，所以它的正确实例化。
 
 注意：所有`迁移`必须只有一个`public`默认构造函数。
 
