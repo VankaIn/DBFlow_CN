@@ -22,4 +22,3 @@ public class TestQueryModel extends BaseQueryModel {
 ```
 
 规则同样适用于表和视图，该字段必须是包私有，公共或私人用，带有getter和setter方法。如果你想不冗长定义与或注释的所有字段，那就设置`@QueryModel（allFields = TRUE）` 。
-Same rules apply to Tables and Views, the fields must be package private, public, or private with getters and setters. If you wish to not verbosely define all fields with an annotation, set `@QueryModel(allFields=true)`.
