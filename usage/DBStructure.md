@@ -22,8 +22,7 @@ _P.S._ 你可以定义为许多`@Database` 只要你喜欢，但是名称要唯�
 ### 配置属性
 **全局冲突处理**：在这里通过指定`insertConflict（）`和 `updateConflict（）`，任何 `@Table`没有明确定上面2个属性的任意一个，他将会使用最适合的一个关联`@Database`。
 
-以前，你需要定义一个`generatedClassSeparator()`  才能运行
-Previously you needed to define a  `generatedClassSeparator()` that works for it.
+以前，你需要定义一个`generatedClassSeparator()`  才能运行。
 
 如果要更改默认`_` ，只需添加一些字符串：
 
@@ -41,7 +40,6 @@ FlowManager.getDatabaseForTable(table).backupDB()
 ```
 
 请注意：当数据库备份失败时，这将创建一个临时的第三方数据库。
-Please Note: This creates a temporary _third_ database in case of a failed backup.
 
 **打开外键Constrants**：通过设置`foreignKeysSupported()=true` ，让数据库强制执行外键。默认情况下此处于关闭状态。们仍然可以定义@ForeignKey，但他们的关系不执行。
 
