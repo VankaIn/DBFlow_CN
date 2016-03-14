@@ -109,7 +109,6 @@ SomeObject someObject;
 
 ### 私人列
 如果你想使用私有字段，只需指定一个getter和setter，格式：`name` -> `getName()` + `setName(columnFieldType)`
-If you wish to use private fields, simply specify a getter and setter that follow the format of: `name` -> `getName()` + `setName(columnFieldType)`
 
 ```java
 
