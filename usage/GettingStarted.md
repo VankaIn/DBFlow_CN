@@ -43,7 +43,7 @@ public class ExampleApplication extends Application {
 
 ## 定义我们的数据库
 
-在DBFlow，一个 `@Database` 是一个占位符，这个占位符可以生产子类对象 `BaseDatabaseDefinition`， `BaseDatabaseDefinition`连接所有表，ModelAdapter，Views，Queries还有更多其下的对象。所有连接都完成预编译的时候，所以没有搜索，反射，和任何其他能减慢您的应用程序的运行时间的影响。
+在DBFlow，一个 `@Database` 是一个占位符，这个占位符可以生产子类对象 `BaseDatabaseDefinition`， `BaseDatabaseDefinition`连接所有表，ModelAdapter，Views，Queries还有更多其下的对象。所有连接都在预编译的时候完成，所以没有搜索，反射，和任何其他能减慢您的应用程序的运行时间的影响。
 
 在这个例子中，我们需要定义我们要把蚁群保存到哪里（定义数据库）：
 
