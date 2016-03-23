@@ -28,7 +28,7 @@ public class ExampleApplication extends Application {
 
 }
 ```
-别担心，这只是初始化一次，它会守住只有应用程序，即使面初始化其他`Context`。
+别担心，这只是初始化一次，它会守住只有应用程序，即使使用其他`Context`初始化。
 
 最后，定义添加到清单（对应您的自定义应用程序的名称）：
 
