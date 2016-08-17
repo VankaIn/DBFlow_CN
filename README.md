@@ -1,6 +1,5 @@
 # DBFlow_CN
-翻译DBFlow文档
-[dbflow 的地址][https://github.com/Raizlabs/DBFlow]
+翻译[DBFlow](https://github.com/Raizlabs/DBFlow)文档
 
 ![Image](https://github.com/agrosner/DBFlow/blob/develop/dbflow_banner.png?raw=true)
 
