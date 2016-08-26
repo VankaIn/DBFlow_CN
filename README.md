@@ -83,7 +83,6 @@ allProjects {
 }
 ```
 
-Add the library to the project-level build.gradle, using the apt plugin to enable Annotation Processing:
 该库添加到项目级的build.gradle，使apt插件支持**注释处理**:
 
 ```groovy
